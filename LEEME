@@ -1,0 +1,56 @@
+ __________________________________________________________________
+       __                                                    _____
+     /    )                                      /           /    )
+ ---/----/-----__-----__-----__----__-----__----/-----__----/----/-
+   /  \ /    /   '  /   )  /   )  (_   /   )  /    /___)  /    /
+ _(____X____(___ __(___/__/___/__(__)__(___/__/____(___ __/____/___
+        \
+
+
+			Bienvenido a Qconsoled
+		======================================
+
+1.- ¿Qué es Qconsoled?
+	Qconsoled es un amago de servidor de consolas de quake; ¿Y que @#@#
+significa eso?, pues normalmente cuando uno deja un servidor de quakeworld
+por ejemplo en una maquina, lo deja en segundo plano y con un nohup, de tal
+modo q al proceso del servidor solo se le pueden introducir datos o
+conectandose a el con un cliente de quakeworld (metiendo codigos de admin y
+esas cosas), o usando la funcion de rcon a base de datagramas udp con
+comandos, mandas status y te devuelve tal cosa. 
+
+	Qconsoled pretende ser una alternativa a todo esto, haciendo como un
+servidor de telnet, al conectar a un puerto nos pide una clave al igual q el
+rcon, y una vez acreditados dispondremos de una consola en el servidor
+IGUALITA a si estubieramos alli (incluso con el comando say).
+
+2.- ¿Cómo instalarlo?
+
+	En estas versiones preeliminares no hay fichero de configuracion,
+asi que te tocara editar el defines.h y poner ahi donde tienes el servidor,
+puerto de conexion, numero maximo de consolas abiertas, etc etc etc, (ten
+cuidado con las barras de / al final, QSV_RUTA no lleva y QSV_DIR si lleva).
+
+	Una vez configurado, teclea make, y te saldra un ejecutable llamado
+Qconsoled, lo ejecutas y ale, ya tienes el servidor de quake rulando en
+segundo plano y conectando al puerto especificado en el defines.h podras
+acceder a la consola del servidor
+
+3.- Estado del cutre-proyecto
+
+	Por ahora no dispone de fichero de configuracion, ni de parser de
+comandos, asi que cuidadin con poner quit, porque el servidor hace un
+Shutdown y adios muy buenas, dara un SIGCHILD y el demonio lo ignorara y
+akello se kedara medianamente colgao.
+
+	He observado que al provarlo en local: servidor de quake, cliente de
+quake y Qconsoled en el mismo equipo, algunas cosas no funcionan bien, eso
+de cambiar entre terminal y cliente de quake da algun q otro problema.
+
+	Por ahora no hay una ToDo list, se aceptan sugerencias, comentarios,
+bugs, xploits, fotos, telefonos, insultos, bla bla bla :)
+
+4.- Mas informacion:
+	Nick: graffic     Clan: TnT Spanish Clan
+	graffic@linux.apostols.org
+	http://linux.apostols.org/guru/graffic/
