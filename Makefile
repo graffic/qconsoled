@@ -3,7 +3,7 @@
 #
 
 # Flags de Optimizacion normales
-CFLAGS=-Wall -g -m486
+CFLAGS=-Wall -g
 
 # Flags de Optimizacion pero puede ser peligroso usarlas :) nunca se sabe
 #CFLAGS=-O6 -Wall -mpentium 

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <signal.h>
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -44,7 +45,7 @@ int qcd_initsignal(void)
 {
  struct sigaction opciones;
  opciones.sa_handler=sig_manejador;
- opciones.sa_flags=SA_RESTART|SA_NOMASK;
+ opciones.sa_flags=SA_RESTART|SA_NODEFER;
  if (sigaction(SIGTERM,&opciones,NULL)<0) {perror("Desviando SIGTERM");exit(ERROR);}
  if (sigaction(SIGINT,&opciones,NULL)<0) {perror("Desviando SIGINT");exit(ERROR);}
  opciones.sa_handler=muere_hijo;
