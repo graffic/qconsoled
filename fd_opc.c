@@ -141,8 +141,8 @@ devuelve 	<-> la cantidad de datos impresos
 */
 int b_print(char *buff_orig,char *buff_dest,int tipo,int dmax)
 {
-  register unsigned char *lact=(unsigned char *)buff_orig;
-  register unsigned char *lprox=(unsigned char *)buff_orig;
+  register char *lact=buff_orig;
+  register char *lprox=buff_orig;
   register int tam=0;
   while( ((lprox=strchr(lact,'\n')) != NULL) && (tam<dmax))
   {

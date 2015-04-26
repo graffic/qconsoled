@@ -56,7 +56,8 @@ int main()
  qcd_hijo *hijos;
  qcd_config conf;
  struct sockaddr_in dir;
- int x,y,z;
+ int x,z;
+ unsigned int y;
  qsv_pid=0;
  fprintf(stderr,"%s-Welcome/Bienvenido/Nomeacuerdo to Qconsoled\n",REF_QCON);
 
