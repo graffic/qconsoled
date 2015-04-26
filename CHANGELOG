@@ -1,3 +1,9 @@
+BETA 0.83 20/12/1999
+---------
+	- Minor fix when calling execv to execute the quake server.
+        - Moved some printf info lines to the debug section.
+        - Added automatic info when quake server shutdown.
+
 BETA 0.8
 --------
 After a year:

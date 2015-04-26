@@ -9,6 +9,7 @@
 
 #include "defines.h"              
 #include "conf.h"
+#include "fd_opc.h"
 
 extern qcd_config *tmp_conf;
 extern qcd_hijo *tmp_hijos;
@@ -18,9 +19,12 @@ char *strsignal(int sig);
 void muere_hijo(int sig)
 {
  int wpid;
+ char buff[30];
  wpid=wait(NULL);
  if(wpid==qsv_pid) {
   printf("%s%s-Servidor Terminando\n",REF_QCON,REF_QSV);
+  sprintf(buff,"%d :OFF\n",MSG_SRV);
+  msg_hijo(tmp_hijos,tmp_conf->qc_consoles,buff);                
   qsv_pid=0;
  }
  else printf("%s-%s Recibida [PID:%d]\n",REF_QCON,strsignal(sig),wpid);

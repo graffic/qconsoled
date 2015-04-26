@@ -21,7 +21,7 @@
 #define		MSG_SRV		300 /* Server status message */
 #define		MSG_SRV_ALREADY	301 /* Forced server status message */
 
-#define		DEBUG__
+//#define		DEBUG__
 
 typedef struct{
 	int pid;

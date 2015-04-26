@@ -1,0 +1,5 @@
+TODO List - Lista de cosas por hacer
+---------   ------------------------
+
+	- Fix minor bugs when using shared memory zones
+	- Check for buffer overflows

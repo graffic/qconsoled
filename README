@@ -11,7 +11,7 @@
 		======================================
 
 1.- What is Qconsoled?
-	Qconsoled is a Quakeserver console server. And... what the hell is
+	Qconsoled is a Quakeserver Console Server. And... what the hell is
 this? Usually, when you run a quake server into a remote computer, like a
 quakeworld server, you must put the quake server process into background
 using nohup or similar tools, when you do it there is no real access to the
@@ -43,7 +43,7 @@ DEBUG__ line:
 	Then type make to compile, and if all has been done well, you'll
 have a Qconsoled exec file =).
 
-	2.3.- Configuring.
+	2.3.- Configuration
 	Copy qconsoled.conf into /etc directory or leaves it in the actual
 directory. You can use the qconf.sh shell script to configure Qconsoled but
 it needs the dialog package; another option is edit the configuration file.
@@ -82,14 +82,16 @@ information: Qconsoled 2> /dev/null
 	Then enter the password and you'll be in.
 
 	3.1.- Commands available
+	Commands aren't case sensitve.
+
 	info <- information about the qconsoled status, clients connected
                 and server status.
 	help <- text client help: list of commands.
 	quit <- exits from client.
 	msg <- Enable/Disable direct communication with the server:
-MSG
-map q2dm1
-MSG
+		MSG
+		map q2dm1
+		MSG
 	server_switch_on <- Switch on the server
 	server_switch_off <- Switch off the server
 
@@ -101,6 +103,8 @@ MSG
 	- #linux people from irc-hispano.org
 	- GNU people all arround the world
         
+----------------------------------------------
 Nick: graffic     Clan: TnT Spanish Quake Clan
-graffic@linux.apostols.org
-http://linux.apostols.org/guru/graffic/
+mail: graffic@linux.apostols.org
+Web:  http://linux.apostols.org/guru/graffic/
+----------------------------------------------

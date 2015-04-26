@@ -134,11 +134,15 @@ int main()
    }
    else
    {
+#ifdef DEBUG__
     fprintf(stderr,"%s%s-MsjSaliente(%d):\n%s",REF_QCON,REF_QSV,tam,buff);
- /* formateamos lo ke vamos a enviar */
+#endif
+    /* Formateamos lo ke vamos a enviar */
     tam=b_print(buff,tmp2,MSG_DAT,3500);
-/* Enviamos datos a los ke esten conectados */
+    
+    /* Enviamos datos a los ke esten conectados */
     for(x=0;x<conf.qc_consoles;x++)
+    
      if(hijos[x].socket != -1) write(hijos[x].llegan[1],tmp2,tam);
     memset(tmp2,'\0',4096);
    }
@@ -208,13 +212,15 @@ int main()
      z=0;tam=0;
      tam=sprintf((buff+tam),"%d :-------INFO---------\n",MSG_INF);
      y=sizeof(dir);
-     for(x=0;x<conf.qc_consoles;x++) {
-      if(hijos[x].socket != -1) 
-      {
-       getpeername(hijos[x].socket,(struct sockaddr *)&dir,&y);
-       tam+=sprintf(buff+tam,"%d :Client:%d From:%s:%d\n",MSG_INF,x+1,inet_ntoa(dir.sin_addr),ntohs(dir.sin_port));
-       z++;
-      } }
+     for(x=0;x<conf.qc_consoles;x++) 
+     {
+      	if(hijos[x].socket != -1) 
+      	{	
+       		getpeername(hijos[x].socket,(struct sockaddr *)&dir,&y);
+       		tam+=sprintf(buff+tam,"%d :Client:%d From:%s:%d\n",MSG_INF,x+1,inet_ntoa(dir.sin_addr),ntohs(dir.sin_port));
+       		z++;
+      	} 
+     }
      sprintf(buff+tam,"%d :Statics: %d/%d - SV: %s\n%d :-------INFO---------\n",MSG_INF,z,conf.qc_consoles,(qsv_pid==0)?"OFF":"ON",MSG_INF);
      write(hijos[cliente].llegan[1],buff,strlen(buff));
      

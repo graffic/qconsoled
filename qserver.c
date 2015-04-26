@@ -27,23 +27,23 @@ int iniciaserver(qcd_config *conf,int pts_master)
   mid[0]='\0';
   chdir(conf->program);
   /* Restituye la primera / */
-  mid[0]=' ';
-  
+  mid[0]=47;
   /* Vamos a hacer un indice con todos los argumentos disponibles */
   /* Contabilizamos los argumentos */
-  tmp=mid-1;
+  tmp=conf->program;
   while((tmp=index(tmp+1,32))) x++;
   /* Asignamos memoria para el indice una vez sabido el numero de argumentos */
-  sep=(char **)malloc(x); 
+  sep=(char **)(malloc(x)+2); 
   /* Rellenamos el indice de argumentos con punteros a conf->program */
-  x=0;tmp=mid-1;
+  sep[0]=conf->program;
+  x=1;tmp=conf->program;
   while((tmp=index(tmp+1,32)))
   {
    tmp[0]='\0';
    sep[x]=tmp+1;
-   tmp++;x++;
-   
+   tmp++;x++;   
   }
+  sep[x]=NULL; 
   execv(sep[0],sep);
   fprintf(stderr,"Server could not be spawn\n");
   exit(0);        
