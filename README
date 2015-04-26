@@ -10,6 +10,10 @@
 			Welcome to Qconsoled
 		======================================
 
+0.- Reader's note.
+This is a really old piece of code I've recovered from 1998/1999. It tries to
+do what tmux or screen does nowadays.
+
 1.- What is Qconsoled?
 	Qconsoled is a Quakeserver Console Server. And... what the hell is
 this? Usually, when you run a quake server into a remote computer, like a
