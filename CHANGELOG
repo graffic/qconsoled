@@ -1,0 +1,12 @@
+BETA 0.8
+--------
+After a year:
+	- Qconsoled has been reprogrammed.
+	- Text client with windows telnet support.
+	- Using /dev/pts to talk with the server.
+	- A lot of bugs to discover.
+
+ALPHA 0.1
+---------
+Initial relase of Qconsoled:
+	- It is only and idea being programmed :)

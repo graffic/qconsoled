@@ -10,30 +10,97 @@
 			Welcome to Qconsoled
 		======================================
 
-0.- LEEME file is more complete but in spanish :\
-
 1.- What is Qconsoled?
 	Qconsoled is a Quakeserver console server. And... what the hell is
-this? Usually, when you put a quake server in a remote computer, like a
+this? Usually, when you run a quake server into a remote computer, like a
 quakeworld server, you must put the quake server process into background
-using nohup or similar, when you do it, there is no real access to the
+using nohup or similar tools, when you do it there is no real access to the
 server console, only connecting with a quakeworld client (usign admin codes
 and things like that) or using rcon (aviable on quakeworld and quake2
 servers only) that sends commands in UDP datagrams and return a result.
 
 	Qconsoled pretends to be an alternative, doing the function of
-connect like a telnet server, and bringing access to the console server.
+serving consoles like a telnet server, and bringing access to the quake
+console.
 
-2.- How to install it?	
-	Edit defines.h file and modify it according to your server, be
-carefully with absolute paths. Then type make, and it should compile
-(if not... email me). 
+2.- Installing Qconsoled.
+	2.1.- What do you need?
+	- glibc2
+	- IPv4 sockets support
+	- gcc 
+	- mounted devpts filesystem
 
-..
-..
-..
+	2.2.- Compiling.
+	First you must decompress the tarball:
+tar xzvf qconsoled-x.x.tgz
+
+	It will create a directory called qconsoled, go there and watch
+defines.h. If you don't want to see debug information comment the #define
+DEBUG__ line:
+
+//#define DEBUG__
+
+	Then type make to compile, and if all has been done well, you'll
+have a Qconsoled exec file =).
+
+	2.3.- Configuring.
+	Copy qconsoled.conf into /etc directory or leaves it in the actual
+directory. You can use the qconf.sh shell script to configure Qconsoled but
+it needs the dialog package; another option is edit the configuration file.
+
+	The qconsoled.conf file can be located in the /etc
+directory or in the Qconsoled exec directory (example: when you run
+Qconsoled in a shell).
+
+	There are a few options to change, all of them must be betwen " and
+must be terminated with a new line character.
+	PROGRAM <- The program to control like:
+	PROGRAM="/usr/games/quake2/Quake2 +set dedicated 1"
+	
+	PASSWORD <- Key to access Qconsoled remotely:
+	PASSWORD="quake"
+
+	CONSOLES <- Max number of clients who can be conected at the same
+time into Qconsoled:
+	CONSOLES="2"
+
+	PORT <- The TCP port in which Qconsoled will be listening. I
+recommend 10108:
+	PORT="10108"
+
+	ISSUE <- Message at the logon:
+	ISSUE="Welcome to TnT Clan Server Site"
+
+	2.4- Running
+	Execute the file called Qconsoled, and if you want to omit output
+information: Qconsoled 2> /dev/null
+
+3.- Accessing to Qconsoled.
+	Do a: telnet <ip> <port> ; like:
+	telnet 127.0.0.1 10108
+	
+	Then enter the password and you'll be in.
+
+	3.1.- Commands available
+	info <- information about the qconsoled status, clients connected
+                and server status.
+	help <- text client help: list of commands.
+	quit <- exits from client.
+	msg <- Enable/Disable direct communication with the server:
+MSG
+map q2dm1
+MSG
+	server_switch_on <- Switch on the server
+	server_switch_off <- Switch off the server
+
+
 
 4.- More info:
-        Nick: graffic     Clan: TnT Spanish Clan
-        graffic@linux.apostols.org
-        http://linux.apostols.org/guru/graffic/
+   Thanks to: 
+	- SLUG_MSTR from irc-hispano.org
+	- #linux people from irc-hispano.org
+	- GNU people all arround the world
+        
+Nick: graffic     Clan: TnT Spanish Quake Clan
+graffic@linux.apostols.org
+http://linux.apostols.org/guru/graffic/
